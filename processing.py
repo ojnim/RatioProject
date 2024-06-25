@@ -3,15 +3,15 @@ import pandas as pd
 def txt_to_csv(source, file1, file2, languages):
     #read txt file
     with open(file1, 'r', encoding='utf-8') as f:
-        ko_lines = f.readlines()
+        f1_lines = f.readlines()
     
     with open(file2, 'r', encoding='utf-8') as f:
-        en_lines = f.readlines()
+        f2_lines = f.readlines()
 
     df = pd.DataFrame({
-        source: range(1, len(ko_lines) + 1), #row number
-        languages[0]: [line.strip() for line in ko_lines],
-        languages[1]: [line.strip() for line in en_lines]
+        source: range(1, len(f1_lines) + 1), #row number
+        languages[0]: [line.strip() for line in f1_lines],
+        languages[1]: [line.strip() for line in f2_lines]
     })
 
     csv_file = f'{source}.csv'
